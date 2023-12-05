@@ -27,15 +27,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Checkout Code
-      uses: actions/checkout@v4
-    - name: Build and Run Tests
-      run: # execute your tests generating test results
-    - name: Publish Test Report
-      uses: itsmedilnawaz/action-junit-report@v4
-      if: success() || failure() # always run even if the previous step fails
-      with:
-        report_paths: '**/build/test-results/test/TEST-*.xml'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
